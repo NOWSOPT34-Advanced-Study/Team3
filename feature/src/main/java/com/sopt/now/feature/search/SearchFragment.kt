@@ -1,8 +1,8 @@
 package com.sopt.now.feature.search
 
-import com.now.feature.R
-import com.now.feature.databinding.FragmentSearchBinding
 import com.sopt.now.core.base.BindingFragment
+import com.sopt.now.feature.R
+import com.sopt.now.feature.databinding.FragmentSearchBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

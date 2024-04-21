@@ -2,11 +2,11 @@ package com.sopt.now.feature.home
 
 import android.os.Build
 import androidx.core.view.isVisible
-import com.now.feature.R
-import com.now.feature.databinding.FragmentMyPageBinding
+import com.sopt.now.core.base.BindingFragment
+import com.sopt.now.feature.R
+import com.sopt.now.feature.databinding.FragmentMyPageBinding
 import com.sopt.now.feature.model.HomeSealedItem
 import com.sopt.now.feature.util.KeyStorage
-import com.sopt.now.core.base.BindingFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

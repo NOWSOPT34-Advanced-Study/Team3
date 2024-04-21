@@ -8,11 +8,10 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.now.feature.R
-import com.now.feature.databinding.ActivityMainBinding
-import com.sopt.now.feature.util.KeyStorage.TOTAL_PRESSED_TIME
 import com.sopt.now.core.base.BindingActivity
 import com.sopt.now.core.util.context.snackBar
+import com.sopt.now.feature.databinding.ActivityMainBinding
+import com.sopt.now.feature.util.KeyStorage.TOTAL_PRESSED_TIME
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.launchIn

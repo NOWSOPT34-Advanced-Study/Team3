@@ -1,7 +1,7 @@
 package com.sopt.now.feature.home.adapter.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
-import com.now.feature.databinding.ItemTitleLineBinding
+import com.sopt.now.feature.databinding.ItemTitleLineBinding
 import com.sopt.now.feature.model.HomeSealedItem
 
 class TitleLineViewHolder(private val binding: ItemTitleLineBinding) :

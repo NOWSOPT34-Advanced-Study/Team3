@@ -3,7 +3,7 @@ package com.sopt.now.feature.home.adapter.viewholder
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.now.feature.databinding.ItemFriendBinding
+import com.sopt.now.feature.databinding.ItemFriendBinding
 import com.sopt.now.feature.model.HomeSealedItem
 import com.sopt.now.feature.util.DateKeyStorage
 import com.sopt.now.feature.util.DateUtils

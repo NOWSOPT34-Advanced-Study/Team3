@@ -1,7 +1,7 @@
 package com.sopt.now.feature.home.adapter.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
-import com.now.feature.databinding.ItemMyProfileBinding
+import com.sopt.now.feature.databinding.ItemMyProfileBinding
 import com.sopt.now.feature.model.HomeSealedItem
 
 class ProfileViewHolder(

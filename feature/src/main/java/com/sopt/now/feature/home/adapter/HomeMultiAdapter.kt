@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.now.feature.databinding.ItemFriendBinding
-import com.now.feature.databinding.ItemMyProfileBinding
-import com.now.feature.databinding.ItemTitleLineBinding
+import com.sopt.now.core.view.ItemDiffCallback
+import com.sopt.now.feature.databinding.ItemFriendBinding
+import com.sopt.now.feature.databinding.ItemMyProfileBinding
+import com.sopt.now.feature.databinding.ItemTitleLineBinding
 import com.sopt.now.feature.home.adapter.viewholder.FriendViewHolder
 import com.sopt.now.feature.home.adapter.viewholder.ProfileViewHolder
 import com.sopt.now.feature.home.adapter.viewholder.TitleLineViewHolder
 import com.sopt.now.feature.model.HomeSealedItem
-import com.sopt.now.core.view.ItemDiffCallback
 
 class HomeMultiAdapter(
     private val onProfileClicked: (HomeSealedItem.MyProfile) -> Unit,

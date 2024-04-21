@@ -4,13 +4,13 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.now.feature.R
-import com.now.feature.databinding.FragmentHomeBinding
+import com.sopt.now.core.base.BindingFragment
+import com.sopt.now.core.util.fragment.setScrollTopOnReselect
+import com.sopt.now.feature.R
+import com.sopt.now.feature.databinding.FragmentHomeBinding
 import com.sopt.now.feature.home.adapter.HomeMultiAdapter
 import com.sopt.now.feature.model.HomeSealedItem
 import com.sopt.now.feature.util.KeyStorage
-import com.sopt.now.core.base.BindingFragment
-import com.sopt.now.core.util.fragment.setScrollTopOnReselect
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

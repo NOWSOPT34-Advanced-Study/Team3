@@ -1,12 +1,12 @@
 package com.sopt.now.feature.mypage
 
 import androidx.fragment.app.viewModels
-import com.now.feature.R
-import com.sopt.now.feature.auth.LoginActivity
-import com.now.feature.databinding.FragmentMyPageBinding
 import com.sopt.now.core.base.BindingFragment
 import com.sopt.now.core.util.fragment.toast
 import com.sopt.now.core.util.intent.navigateTo
+import com.sopt.now.feature.R
+import com.sopt.now.feature.auth.LoginActivity
+import com.sopt.now.feature.databinding.FragmentMyPageBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

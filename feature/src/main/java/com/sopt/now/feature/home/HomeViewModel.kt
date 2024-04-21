@@ -1,7 +1,7 @@
 package com.sopt.now.feature.home
 
 import androidx.lifecycle.ViewModel
-import com.now.feature.R
+import com.sopt.now.feature.R
 import com.sopt.now.feature.model.HomeSealedItem
 import com.sopt.now.feature.util.DateUtils
 import com.sopt.now.feature.util.DateUtils.today
