@@ -39,9 +39,16 @@ android {
         viewBinding = true
         dataBinding = true
     }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/gradle/incremental.annotation.processors"
+        }
+    }
 }
 
 dependencies {
+    implementation(project(":domain"))
     // jetpack navi
     implementation(libs.bundles.jetpack.navi)
     // sharedPreference crypto
