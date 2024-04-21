@@ -1,4 +1,4 @@
-package com.sopt.now.data.dto.local
+package com.sopt.now.dto
 
 import com.sopt.now.domain.entity.UserEntity
 import kotlinx.serialization.Serializable
