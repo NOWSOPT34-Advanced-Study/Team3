@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kotlin.feature"
+    namespace = "com.sopt.now.feature"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     buildTypes {
