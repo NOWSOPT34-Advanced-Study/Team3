@@ -10,4 +10,6 @@ java {
 
 dependencies {
     implementation(libs.dagger.hilt.compiler)
+    implementation(libs.paging.domain)
+    implementation(libs.kotlin.coroutines)
 }
