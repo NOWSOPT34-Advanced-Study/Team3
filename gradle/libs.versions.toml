@@ -28,6 +28,7 @@ material = "1.11.0"
 
 # hilt
 dagger-hilt = "2.50"
+inject = "1"
 
 # Third Party
 
@@ -59,6 +60,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 # Hilt
 dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger-hilt" }
 dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "dagger-hilt" }
+inject = { group = "javax.inject", name = "javax.inject", version.ref = "inject" }
 
 # Third Party
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
