@@ -1,23 +1,14 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.dagger.hilt)
-    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
-    namespace = "com.sopt.now"
+    namespace = "com.sopt.now.feature"
     compileSdk = libs.versions.compileSdk.get().toInt()
-
-    defaultConfig {
-        applicationId = "com.sopt.now"
-        minSdk = libs.versions.minSdk.get().toInt()
-        targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = libs.versions.versionCode.get().toInt()
-        versionName = libs.versions.versionName.get()
-    }
 
     buildTypes {
         getByName("release") {
@@ -42,15 +33,11 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature"))
-    implementation(project(":domain"))
-    implementation(project(":core"))
+//    implementation(project(":core-ui"))
+//    implementation(project(":domain"))
+
     // jetpack navi
     implementation(libs.bundles.jetpack.navi)
-    // sharedPreference crypto
-    implementation(libs.security.crypto)
-    // json
-    implementation(libs.kotlinx.serialization.json)
     // google
     implementation(libs.material)
     // ktx (by viewModels)
@@ -61,4 +48,8 @@ dependencies {
     kapt(libs.dagger.hilt.compiler)
     // 기초 androidx 라이브러리 ("core-ktx", "constraintlayout", "appcompat", "activity")
     implementation(libs.bundles.androidx)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.junit)
+    androidTestImplementation(libs.androidx.test.espresso)
 }
