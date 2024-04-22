@@ -37,4 +37,6 @@ dependencies {
     // dagger hilt
     implementation(libs.dagger.hilt)
     kapt(libs.dagger.hilt.compiler)
+
+    implementation(libs.retrofit2)
 }
