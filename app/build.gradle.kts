@@ -42,6 +42,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain"))
     // jetpack navi
     implementation(libs.bundles.jetpack.navi)
     // sharedPreference crypto

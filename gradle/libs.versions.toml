@@ -16,16 +16,19 @@ activity-ktx = "1.8.2"
 fragment-ktx = "1.6.2"
 security-crypto = "1.1.0-alpha06"
 jetpack-navi = "2.7.7"
+paging = "3.1.1"
 
 # kotlin
 kotlin = "1.9.0"
 kotlinx-serialization-json = "1.6.3"
+kotlinx-coroutines = "1.7.3"
 
 # google
 material = "1.11.0"
 
 # hilt
 dagger-hilt = "2.50"
+inject = "1"
 
 # Third Party
 
@@ -47,6 +50,9 @@ fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref
 security-crypto = { group = "androidx.security", name = "security-crypto", version.ref = "security-crypto" }
 navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "jetpack-navi" }
 navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "jetpack-navi" }
+paging = { module = "androidx.paging:paging-runtime-ktx", version.ref = "paging" }
+paging-domain = { module = "androidx.paging:paging-common", version.ref = "paging" }
+kotlin-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 
 # Google
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
@@ -54,6 +60,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 # Hilt
 dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger-hilt" }
 dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "dagger-hilt" }
+inject = { group = "javax.inject", name = "javax.inject", version.ref = "inject" }
 
 # Third Party
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
