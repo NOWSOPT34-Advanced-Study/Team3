@@ -29,7 +29,7 @@ android {
 }
 
 dependencies {
-//    implementation(project(":domain"))
+    implementation(project(":domain"))
     // sharedPreference
     implementation(libs.core.ktx)
     // json

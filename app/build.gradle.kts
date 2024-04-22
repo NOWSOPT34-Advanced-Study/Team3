@@ -42,6 +42,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":data"))
     implementation(project(":feature"))
     implementation(project(":domain"))
     implementation(project(":core"))
