@@ -1,14 +1,11 @@
 package com.sopt.now.feature.auth
 
-import android.app.Activity.RESULT_OK
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Intent
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import com.sopt.now.core.base.BindingActivity
