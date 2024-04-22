@@ -43,6 +43,8 @@ android {
 
 dependencies {
     implementation(project(":feature"))
+    implementation(project(":domain"))
+    implementation(project(":core"))
     // jetpack navi
     implementation(libs.bundles.jetpack.navi)
     // sharedPreference crypto
