@@ -1,7 +1,7 @@
-package com.sopt.now.data.repositoryimpl
+package com.sopt.now.repositoryimpl
 
-import com.sopt.now.data.datasource.local.SharedPreferenceDataSource
-import com.sopt.now.data.dto.local.UserDto
+import com.sopt.now.datasource.SharedPreferenceDataSource
+import com.sopt.now.dto.UserDto
 import com.sopt.now.domain.entity.UserEntity
 import com.sopt.now.domain.repository.UserInfoRepository
 import javax.inject.Inject

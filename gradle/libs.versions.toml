@@ -31,12 +31,14 @@ dagger-hilt = "2.50"
 inject = "1"
 
 # Third Party
+retrofit2 = "2.9.0"
 
 # Test
 junit = "4.13.2"
 androidx-test-junit = "1.1.5"
 androidx-test-espresso = "3.5.1"
 jetbrainsKotlinJvm = "1.9.0"
+
 
 
 [libraries]
@@ -64,6 +66,8 @@ inject = { group = "javax.inject", name = "javax.inject", version.ref = "inject"
 
 # Third Party
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
+retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit2" }
+
 
 # Test
 junit = { group = "junit", name = "junit", version.ref = "junit" }
