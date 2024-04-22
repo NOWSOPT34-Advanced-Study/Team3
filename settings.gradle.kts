@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "NOW SOPT Android"
 include(":app")
+include(":domain")
 include(":core")

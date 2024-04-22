@@ -42,6 +42,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain"))
     implementation(project(":core"))
     // jetpack navi
     implementation(libs.bundles.jetpack.navi)
