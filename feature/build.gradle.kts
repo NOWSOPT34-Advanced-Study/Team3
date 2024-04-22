@@ -33,8 +33,8 @@ android {
 }
 
 dependencies {
-//    implementation(project(":core-ui"))
-//    implementation(project(":domain"))
+    implementation(project(":core"))
+    implementation(project(":domain"))
 
     // jetpack navi
     implementation(libs.bundles.jetpack.navi)
