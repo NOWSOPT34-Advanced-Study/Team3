@@ -2,12 +2,12 @@ package com.sopt.now.feature.auth
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sopt.now.feature.model.User
-import com.sopt.now.feature.util.StringResources
 import com.sopt.now.core.view.UiState
 import com.sopt.now.domain.entity.UserEntity
 import com.sopt.now.domain.usecase.regex.MbtiValidationUseCase
 import com.sopt.now.domain.usecase.sharedprefusecase.SaveUserInfoUseCase
+import com.sopt.now.feature.model.User
+import com.sopt.now.feature.util.StringResources
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

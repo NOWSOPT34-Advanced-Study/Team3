@@ -1,7 +1,5 @@
 package com.sopt.now.feature.auth
 
-import android.app.Activity.RESULT_OK
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Intent
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
