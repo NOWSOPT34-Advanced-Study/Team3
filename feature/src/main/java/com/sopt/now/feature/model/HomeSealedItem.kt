@@ -2,8 +2,8 @@ package com.sopt.now.feature.model
 
 import android.os.Parcelable
 import androidx.annotation.DrawableRes
-import java.time.LocalDate
 import kotlinx.parcelize.Parcelize
+import java.time.LocalDate
 
 sealed class HomeSealedItem {
     data class TitleLine(

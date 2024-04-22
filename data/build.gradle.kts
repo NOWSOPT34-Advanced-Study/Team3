@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
@@ -29,7 +30,8 @@ android {
 }
 
 dependencies {
-//    implementation(project(":domain"))
+    implementation(project(":domain"))
+
     // sharedPreference
     implementation(libs.core.ktx)
     // json

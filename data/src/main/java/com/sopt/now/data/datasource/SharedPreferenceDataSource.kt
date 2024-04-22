@@ -1,6 +1,6 @@
-package com.sopt.now.datasource
+package com.sopt.now.data.datasource
 
-import com.sopt.now.dto.UserDto
+import com.sopt.now.data.dto.UserDto
 
 interface SharedPreferenceDataSource {
     var checkLogin: Boolean
