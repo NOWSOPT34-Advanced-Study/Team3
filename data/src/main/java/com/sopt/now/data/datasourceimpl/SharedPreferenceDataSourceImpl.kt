@@ -1,9 +1,9 @@
-package com.sopt.now.datasourceimpl
+package com.sopt.now.data.datasourceimpl
 
 import android.content.SharedPreferences
 import androidx.core.content.edit
-import com.sopt.now.datasource.SharedPreferenceDataSource
-import com.sopt.now.dto.UserDto
+import com.sopt.now.data.datasource.SharedPreferenceDataSource
+import com.sopt.now.data.dto.UserDto
 import javax.inject.Inject
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
