@@ -10,6 +10,11 @@ android {
     namespace = "com.sopt.now.feature"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
+    defaultConfig {
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
