@@ -35,6 +35,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
             (supportFragmentManager.findFragmentById(R.id.fcv_home) as NavHostFragment)
                 .findNavController()
         binding.bnvHome.setupWithNavController(navController)
+        navController.navigate(R.id.fragment_login)
         doubleBackPressedOnHomeTab(navController)
         setBottomNavigationVisibility(navController)
     }
