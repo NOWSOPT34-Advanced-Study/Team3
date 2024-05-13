@@ -3,6 +3,7 @@ package com.sopt.now.feature.auth
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.sopt.now.core.base.BindingFragment
 import com.sopt.now.core.util.fragment.snackBar
 import com.sopt.now.core.util.fragment.toast
@@ -46,7 +47,7 @@ class SignUpFragment : BindingFragment<FragmentSignUpBinding>(R.layout.fragment_
                 is UiState.Success -> {
                     toast(getString(R.string.login_completed, getString(R.string.sign_up)))
                     viewModel.saveUserInfoSharedPreference(state.data.toUserEntity())
-                    // TODO 로그인 프레그먼트로 이동
+                    findNavController().navigate(R.id.fragment_login)
                 }
 
                 is UiState.Failure -> {

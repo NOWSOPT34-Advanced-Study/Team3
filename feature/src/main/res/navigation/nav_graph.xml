@@ -33,11 +33,13 @@
         android:label="HomeDetailFragment"
         tools:layout="@layout/fragment_my_page" />
     <fragment
-        android:id="@+id/loginFragment"
+        android:id="@+id/fragment_login"
         android:name="com.sopt.now.feature.auth.LoginFragment"
-        android:label="LoginFragment" />
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login" />
     <fragment
-        android:id="@+id/signUpFragment"
+        android:id="@+id/fragment_sign_up"
         android:name="com.sopt.now.feature.auth.SignUpFragment"
-        android:label="SignUpFragment" />
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up" />
 </navigation>

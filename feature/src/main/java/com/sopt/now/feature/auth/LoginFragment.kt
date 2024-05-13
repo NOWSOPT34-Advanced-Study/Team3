@@ -3,6 +3,7 @@ package com.sopt.now.feature.auth
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.sopt.now.core.base.BindingFragment
 import com.sopt.now.core.util.fragment.snackBar
 import com.sopt.now.core.util.fragment.toast
@@ -26,10 +27,7 @@ class LoginFragment : BindingFragment<FragmentLoginBinding>(R.layout.fragment_lo
     private fun initAutoLoginStateObserve() {
         viewModel.autoLoginState.flowWithLifecycle(lifecycle).onEach { isAutoLogin ->
             when (isAutoLogin) {
-                true -> {
-                    // TODO 홈 프레그먼트로 이동
-                }
-
+                true -> findNavController().navigate(R.id.fragment_home)
                 false -> return@onEach
             }
         }.launchIn(lifecycleScope)
@@ -51,7 +49,7 @@ class LoginFragment : BindingFragment<FragmentLoginBinding>(R.layout.fragment_lo
 
     private fun initSignUpBtnClickListener() {
         binding.tvLoginSignUp.setOnClickListener {
-            // TODO 회원가입 프레그먼트로 이동
+            findNavController().navigate(R.id.fragment_sign_up)
         }
     }
 
@@ -61,7 +59,7 @@ class LoginFragment : BindingFragment<FragmentLoginBinding>(R.layout.fragment_lo
                 is UiState.Success -> {
                     toast(getString(R.string.login_completed, getString(R.string.login)))
                     viewModel.saveCheckLoginSharedPreference(true)
-                    // TODO 홈 프레그먼트로 이동
+                    findNavController().navigate(R.id.fragment_home)
                 }
 
                 is UiState.Failure -> snackBar(binding.root, state.errorMessage)
