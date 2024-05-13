@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NOWSOPTAndroid">
         <activity
-            android:name="com.sopt.now.feature.auth.LoginActivity"
+            android:name="com.sopt.now.feature.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,13 +17,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.sopt.now.feature.auth.SignUpActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name="com.sopt.now.feature.MainActivity"
-            android:exported="false" />
     </application>
 
 </manifest>

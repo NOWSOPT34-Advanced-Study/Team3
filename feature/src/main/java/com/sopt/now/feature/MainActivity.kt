@@ -1,6 +1,8 @@
 package com.sopt.now.feature
 
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -81,5 +83,12 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
             backPressedTime = currentTime
             snackBar(binding.root, getString(R.string.main_back_once_pressed_exit))
         }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        val imm: InputMethodManager =
+            getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+        return super.dispatchTouchEvent(ev)
     }
 }

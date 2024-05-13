@@ -32,4 +32,12 @@
         android:name="com.sopt.now.feature.home.HomeDetailFragment"
         android:label="HomeDetailFragment"
         tools:layout="@layout/fragment_my_page" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.sopt.now.feature.auth.LoginFragment"
+        android:label="LoginFragment" />
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.sopt.now.feature.auth.SignUpFragment"
+        android:label="SignUpFragment" />
 </navigation>
