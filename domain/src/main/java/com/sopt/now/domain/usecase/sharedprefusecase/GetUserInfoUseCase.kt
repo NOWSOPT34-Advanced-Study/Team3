@@ -7,7 +7,7 @@ import javax.inject.Inject
 class GetUserInfoUseCase @Inject constructor(
     private val userInfoRepository: UserInfoRepository
 ) {
-    operator fun invoke(): UserEntity {
+    suspend operator fun invoke(): UserEntity {
         return userInfoRepository.getUserInfo()
     }
 }

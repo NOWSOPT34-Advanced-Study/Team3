@@ -1,6 +1,7 @@
 package com.sopt.now.feature.mypage
 
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.sopt.now.core.base.BindingFragment
 import com.sopt.now.core.util.fragment.toast
 import com.sopt.now.core.util.intent.navigateTo
@@ -8,13 +9,16 @@ import com.sopt.now.feature.R
 import com.sopt.now.feature.auth.LoginActivity
 import com.sopt.now.feature.databinding.FragmentMyPageBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MyPageFragment : BindingFragment<FragmentMyPageBinding>(R.layout.fragment_my_page) {
     private val viewModel by viewModels<MyPageViewModel>()
     override fun initView() {
-        initBtnClickListener()
-        initUpdateUserDataUI()
+        lifecycleScope.launch {
+            initBtnClickListener()
+            initUpdateUserDataUI()
+        }
     }
 
     private fun initBtnClickListener() {
@@ -32,18 +36,20 @@ class MyPageFragment : BindingFragment<FragmentMyPageBinding>(R.layout.fragment_
 
     private fun initClearInfoBtnClickListener() {
         binding.tvMainClearInfo.setOnClickListener {
-            viewModel.clearSharedPrefUserInfo()
-            toast(
-                getString(
-                    R.string.login_completed,
-                    getString(R.string.main_clear_user_under_bar)
+            lifecycleScope.launch {
+                viewModel.clearSharedPrefUserInfo()
+                toast(
+                    getString(
+                        R.string.login_completed,
+                        getString(R.string.main_clear_user_under_bar)
+                    )
                 )
-            )
-            navigateTo<LoginActivity>(requireContext())
+                navigateTo<LoginActivity>(requireContext())
+            }
         }
     }
 
-    private fun initUpdateUserDataUI() = with(binding) {
+    private suspend fun initUpdateUserDataUI() = with(binding) {
         viewModel.getSharedPrefUserInfo().apply {
             tvMainIdData.text = id
             tvMainPwdData.text = password

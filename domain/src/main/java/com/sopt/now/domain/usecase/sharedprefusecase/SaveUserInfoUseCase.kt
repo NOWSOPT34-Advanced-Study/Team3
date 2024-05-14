@@ -7,7 +7,7 @@ import javax.inject.Inject
 class SaveUserInfoUseCase @Inject constructor(
     private val userInfoRepository: UserInfoRepository
 ) {
-    operator fun invoke(user: UserEntity) {
+    suspend operator fun invoke(user: UserEntity) {
         userInfoRepository.saveUserInfo(user)
     }
 }
