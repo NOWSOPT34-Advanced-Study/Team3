@@ -41,7 +41,7 @@ class SignUpViewModel @Inject constructor(
         checkValidateUser()
     }
 
-    fun saveUserInfoSharedPreference(input: UserEntity) {
+    suspend fun saveUserInfoSharedPreference(input: UserEntity) {
         saveUserInfoUseCase.invoke(input)
     }
 

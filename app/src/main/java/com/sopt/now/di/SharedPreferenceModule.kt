@@ -1,9 +1,7 @@
 package com.sopt.now.di
 
 import android.content.Context
-import android.content.SharedPreferences
-import androidx.security.crypto.EncryptedSharedPreferences
-import androidx.security.crypto.MasterKey
+import androidx.datastore.preferences.preferencesDataStore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,16 +12,14 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object SharedPreferenceModule {
+    private const val PREFERENCE_NAME = "chanu_dataStore"
+    private val Context.datastore by preferencesDataStore(
+        name = PREFERENCE_NAME
+    )
+
     @Provides
     @Singleton
     fun providesLocalPreferences(
         @ApplicationContext context: Context
-    ): SharedPreferences =
-        EncryptedSharedPreferences.create(
-            context,
-            context.packageName,
-            MasterKey.Builder(context).setKeyScheme(MasterKey.KeyScheme.AES256_GCM).build(),
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
+    ) = context.datastore
 }

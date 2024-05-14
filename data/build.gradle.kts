@@ -32,8 +32,6 @@ android {
 dependencies {
     implementation(project(":domain"))
 
-    // sharedPreference
-    implementation(libs.core.ktx)
     // json
     implementation(libs.kotlinx.serialization.json)
     // dagger hilt
@@ -41,4 +39,7 @@ dependencies {
     kapt(libs.dagger.hilt.compiler)
 
     implementation(libs.retrofit2)
+
+    // preferences Datastore
+    implementation(libs.datastore.preferences)
 }

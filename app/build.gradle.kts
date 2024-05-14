@@ -49,8 +49,6 @@ dependencies {
 
     // jetpack navi
     implementation(libs.bundles.jetpack.navi)
-    // sharedPreference crypto
-    implementation(libs.security.crypto)
     // json
     implementation(libs.kotlinx.serialization.json)
     // google
@@ -63,4 +61,8 @@ dependencies {
     kapt(libs.dagger.hilt.compiler)
     // 기초 androidx 라이브러리 ("core-ktx", "constraintlayout", "appcompat", "activity")
     implementation(libs.bundles.androidx)
+
+    // preferences Datastore
+    implementation(libs.datastore.preferences)
+    implementation(libs.datastore.core)
 }

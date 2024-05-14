@@ -6,7 +6,7 @@ import javax.inject.Inject
 class ClearUserInfoUseCase @Inject constructor(
     private val userInfoRepository: UserInfoRepository
 ) {
-    operator fun invoke() {
+    suspend operator fun invoke() {
         userInfoRepository.clear()
     }
 }

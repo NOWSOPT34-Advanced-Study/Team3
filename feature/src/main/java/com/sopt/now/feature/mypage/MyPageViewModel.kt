@@ -15,10 +15,10 @@ class MyPageViewModel @Inject constructor(
     private val clearUserInfoUseCase: ClearUserInfoUseCase
 ) : ViewModel() {
 
-    fun getSharedPrefUserInfo(): UserEntity = getUserInfoUseCase.invoke()
+    suspend fun getSharedPrefUserInfo(): UserEntity = getUserInfoUseCase.invoke()
     fun updateCheckLoginState(isAutoLogin: Boolean) {
         saveCheckLoginUseCase.invoke(isAutoLogin)
     }
 
-    fun clearSharedPrefUserInfo() = clearUserInfoUseCase.invoke()
+    suspend fun clearSharedPrefUserInfo() = clearUserInfoUseCase.invoke()
 }

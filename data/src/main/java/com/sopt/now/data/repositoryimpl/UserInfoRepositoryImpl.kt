@@ -9,7 +9,7 @@ import javax.inject.Inject
 class UserInfoRepositoryImpl @Inject constructor(
     private val sharedPreferenceDataSource: SharedPreferenceDataSource
 ) : UserInfoRepository {
-    override fun saveUserInfo(user: UserEntity) {
+    override suspend fun saveUserInfo(user: UserEntity) {
         sharedPreferenceDataSource.saveUserInfo(
             userDto = UserDto(
                 id = user.id,
@@ -24,7 +24,7 @@ class UserInfoRepositoryImpl @Inject constructor(
         sharedPreferenceDataSource.checkLogin = isChecked
     }
 
-    override fun getUserInfo(): UserEntity {
+    override suspend fun getUserInfo(): UserEntity {
         return sharedPreferenceDataSource.getUserInfo().toUserEntity()
     }
 
@@ -32,7 +32,7 @@ class UserInfoRepositoryImpl @Inject constructor(
         return sharedPreferenceDataSource.checkLogin
     }
 
-    override fun clear() {
+    override suspend fun clear() {
         sharedPreferenceDataSource.clear()
     }
 }
