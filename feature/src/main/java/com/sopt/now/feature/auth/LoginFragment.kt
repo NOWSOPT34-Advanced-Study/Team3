@@ -3,6 +3,7 @@ package com.sopt.now.feature.auth
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.sopt.now.core.base.BindingFragment
 import com.sopt.now.core.util.fragment.snackBar
@@ -49,7 +50,10 @@ class LoginFragment : BindingFragment<FragmentLoginBinding>(R.layout.fragment_lo
                 is UiState.Success -> {
                     toast(getString(R.string.login_completed, getString(R.string.login)))
                     viewModel.saveCheckLoginSharedPreference(true)
-                    findNavController().navigate(R.id.fragment_home)
+                    val navOptions = NavOptions.Builder()
+                        .setPopUpTo(R.id.nav_graph, true)
+                        .build()
+                    findNavController().navigate(R.id.fragment_home, null, navOptions)
                 }
 
                 is UiState.Failure -> snackBar(binding.root, state.errorMessage)

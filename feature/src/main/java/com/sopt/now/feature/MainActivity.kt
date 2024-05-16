@@ -1,5 +1,6 @@
 package com.sopt.now.feature
 
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -106,5 +107,31 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
             getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
         return super.dispatchTouchEvent(ev)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        logFragmentStack()
+    }
+
+    private fun logFragmentStack() {
+        val fragmentManager =
+            supportFragmentManager.findFragmentById(R.id.fcv_home) as NavHostFragment
+
+        fragmentManager.childFragmentManager.addOnBackStackChangedListener {
+            if (fragmentManager.childFragmentManager.backStackEntryCount == 0) {
+                Log.i(
+                    "backstack",
+                    fragmentManager.childFragmentManager.backStackEntryCount.toString()
+                )
+
+            } else {
+                Log.i(
+                    "backstack",
+                    fragmentManager.childFragmentManager.backStackEntryCount.toString()
+                )
+            }
+        }
     }
 }
