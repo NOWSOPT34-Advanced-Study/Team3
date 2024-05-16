@@ -1,11 +1,11 @@
 package com.sopt.now.feature.mypage
 
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import com.sopt.now.core.base.BindingFragment
 import com.sopt.now.core.util.fragment.toast
-import com.sopt.now.core.util.intent.navigateTo
 import com.sopt.now.feature.R
-import com.sopt.now.feature.auth.LoginActivity
 import com.sopt.now.feature.databinding.FragmentMyPageBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,7 +26,12 @@ class MyPageFragment : BindingFragment<FragmentMyPageBinding>(R.layout.fragment_
         binding.tvMainSignOut.setOnClickListener {
             viewModel.updateCheckLoginState(false)
             toast(getString(R.string.login_completed, getString(R.string.main_logout_under_bar)))
-            navigateTo<LoginActivity>(requireContext())
+
+            val navOptions = NavOptions.Builder()
+                .setPopUpTo(R.id.nav_graph, true)
+                .build()
+
+            findNavController().navigate(R.id.fragment_login, null, navOptions)
         }
     }
 
@@ -39,7 +44,11 @@ class MyPageFragment : BindingFragment<FragmentMyPageBinding>(R.layout.fragment_
                     getString(R.string.main_clear_user_under_bar)
                 )
             )
-            navigateTo<LoginActivity>(requireContext())
+
+            val navOptions = NavOptions.Builder()
+                .setPopUpTo(R.id.nav_graph, true)
+                .build()
+            findNavController().navigate(R.id.fragment_login, null, navOptions)
         }
     }
 

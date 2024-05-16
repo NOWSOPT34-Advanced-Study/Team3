@@ -1,10 +1,15 @@
 package com.sopt.now.feature
 
+import android.util.Log
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -23,9 +28,12 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
     private var backPressedTime = 0L
     private val backPressedFlow = MutableSharedFlow<Unit>()
 
+    private val viewModel: MainViewModel by viewModels()
+
     override fun initView() {
         initMainBottomNavigation()
         initBackDoublePressed()
+        observeAutoLogin()
     }
 
     private fun initMainBottomNavigation() {
@@ -33,6 +41,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
             (supportFragmentManager.findFragmentById(R.id.fcv_home) as NavHostFragment)
                 .findNavController()
         binding.bnvHome.setupWithNavController(navController)
+        navController.navigate(R.id.fragment_login)
         doubleBackPressedOnHomeTab(navController)
         setBottomNavigationVisibility(navController)
     }
@@ -80,6 +89,49 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         } else {
             backPressedTime = currentTime
             snackBar(binding.root, getString(R.string.main_back_once_pressed_exit))
+        }
+    }
+
+    private fun observeAutoLogin() {
+        viewModel.autoLoginState.flowWithLifecycle(lifecycle).onEach { isAutoLogin ->
+            val navController = Navigation.findNavController(this, R.id.fcv_home)
+            when (isAutoLogin) {
+                true -> navController.navigate(R.id.fragment_home)
+                false -> navController.navigate(R.id.fragment_login)
+            }
+        }.launchIn(lifecycleScope)
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        val imm: InputMethodManager =
+            getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+        return super.dispatchTouchEvent(ev)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        logFragmentStack()
+    }
+
+    private fun logFragmentStack() {
+        val fragmentManager =
+            supportFragmentManager.findFragmentById(R.id.fcv_home) as NavHostFragment
+
+        fragmentManager.childFragmentManager.addOnBackStackChangedListener {
+            if (fragmentManager.childFragmentManager.backStackEntryCount == 0) {
+                Log.i(
+                    "backstack",
+                    fragmentManager.childFragmentManager.backStackEntryCount.toString()
+                )
+
+            } else {
+                Log.i(
+                    "backstack",
+                    fragmentManager.childFragmentManager.backStackEntryCount.toString()
+                )
+            }
         }
     }
 }

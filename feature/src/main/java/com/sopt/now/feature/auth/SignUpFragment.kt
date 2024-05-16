@@ -1,25 +1,22 @@
 package com.sopt.now.feature.auth
 
-import android.content.Intent
-import android.view.MotionEvent
-import android.view.inputmethod.InputMethodManager
-import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import com.sopt.now.core.base.BindingActivity
-import com.sopt.now.core.util.context.snackBar
-import com.sopt.now.core.util.context.toast
+import androidx.navigation.fragment.findNavController
+import com.sopt.now.core.base.BindingFragment
+import com.sopt.now.core.util.fragment.snackBar
+import com.sopt.now.core.util.fragment.toast
 import com.sopt.now.core.view.UiState
 import com.sopt.now.feature.R
-import com.sopt.now.feature.databinding.ActivitySignUpBinding
+import com.sopt.now.feature.databinding.FragmentSignUpBinding
 import com.sopt.now.feature.model.User
-import com.sopt.now.feature.util.KeyStorage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
-class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
+class SignUpFragment : BindingFragment<FragmentSignUpBinding>(R.layout.fragment_sign_up) {
     private val viewModel by viewModels<SignUpViewModel>()
 
     override fun initView() {
@@ -50,7 +47,7 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_
                 is UiState.Success -> {
                     toast(getString(R.string.login_completed, getString(R.string.sign_up)))
                     viewModel.saveUserInfoSharedPreference(state.data.toUserEntity())
-                    navigateToLoginActivity(state.data)
+                    findNavController().navigate(R.id.fragment_login)
                 }
 
                 is UiState.Failure -> {
@@ -62,19 +59,4 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>(R.layout.activity_
         }.launchIn(lifecycleScope)
     }
 
-    private fun navigateToLoginActivity(userInputData: User) {
-        Intent().apply {
-            putExtra(KeyStorage.USER_INPUT, userInputData)
-        }.also {
-            setResult(RESULT_OK, it)
-            finish()
-        }
-    }
-
-    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        val imm: InputMethodManager =
-            getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
-        return super.dispatchTouchEvent(ev)
-    }
 }
