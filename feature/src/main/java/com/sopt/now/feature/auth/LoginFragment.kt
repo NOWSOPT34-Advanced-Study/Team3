@@ -19,18 +19,8 @@ class LoginFragment : BindingFragment<FragmentLoginBinding>(R.layout.fragment_lo
     private val viewModel by viewModels<LoginViewModel>()
 
     override fun initView() {
-        initAutoLoginStateObserve()
         initBtnClickListener()
         initSignUpStateObserve()
-    }
-
-    private fun initAutoLoginStateObserve() {
-        viewModel.autoLoginState.flowWithLifecycle(lifecycle).onEach { isAutoLogin ->
-            when (isAutoLogin) {
-                true -> findNavController().navigate(R.id.fragment_home)
-                false -> return@onEach
-            }
-        }.launchIn(lifecycleScope)
     }
 
     private fun initBtnClickListener() {

@@ -2,27 +2,24 @@ package com.sopt.now.feature.auth
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sopt.now.feature.util.StringResources
 import com.sopt.now.core.view.UiState
 import com.sopt.now.domain.entity.UserEntity
-import com.sopt.now.domain.usecase.sharedprefusecase.GetCheckLoginUseCase
 import com.sopt.now.domain.usecase.sharedprefusecase.GetUserInfoUseCase
 import com.sopt.now.domain.usecase.sharedprefusecase.SaveCheckLoginUseCase
+import com.sopt.now.feature.util.StringResources
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val getUserInfoUseCase: GetUserInfoUseCase,
-    private val getCheckLoginUseCase: GetCheckLoginUseCase,
-    private val saveCheckLoginUseCase: SaveCheckLoginUseCase
+    private val saveCheckLoginUseCase: SaveCheckLoginUseCase,
 ) : ViewModel() {
     private val _savedUserInfo = MutableStateFlow<UserEntity>(
         UserEntity(
@@ -37,30 +34,19 @@ class LoginViewModel @Inject constructor(
     private val _loginState = MutableSharedFlow<UiState<UserEntity>>()
     val loginState: SharedFlow<UiState<UserEntity>> get() = _loginState.asSharedFlow()
 
-    private val _autoLoginState = MutableStateFlow<Boolean>(false)
-    val autoLoginState: StateFlow<Boolean> get() = _autoLoginState.asStateFlow()
-
     init {
-        checkAutoLogin()
+        getUserInfo()
     }
 
-    private fun checkAutoLogin() {
+    private fun getUserInfo() {
         viewModelScope.launch {
-            _autoLoginState.value = isAutoLogin()
-            if (!isAutoLogin()) {
-                _savedUserInfo.value = getUserInfoUseCase.invoke()
-            }
+            _savedUserInfo.value = getUserInfoUseCase.invoke()
+
         }
     }
 
-    private fun isAutoLogin(): Boolean = getCheckLoginUseCase.invoke()
-
     fun saveCheckLoginSharedPreference(input: Boolean) {
         saveCheckLoginUseCase.invoke(input)
-    }
-
-    fun setSavedUserInfo(input: UserEntity) {
-        _savedUserInfo.value = input
     }
 
     fun setLogin(id: String, pwd: String) {
